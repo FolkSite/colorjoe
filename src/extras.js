@@ -34,7 +34,7 @@ function fields(p, joe, o) {
         e.input.onkeyup = update;
 
         return {
-            name: n, 
+            name: n,
             e: e
         };
     });
@@ -121,8 +121,7 @@ function hex(p, joe, o) {
 
     return {
         change: function(col) {
-            e.input.value = e.input.value[0] == '#'? '#': '';
-            e.input.value += col.hex().slice(1);
+            e.input.value = col.hex();
         }
     };
 }

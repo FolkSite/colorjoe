@@ -23,7 +23,7 @@ function main() {
     colorjoe.rgb('extraPicker', '#113c38', [
                  'close',
                  'currentColor',
-                 ['fields', {space: 'RGB', limit: 255, fix: 2}],
+                 ['fields', {space: 'RGB', limit: 255}],
                  'hex',
                  'text',
                  ['text', {text: 'param demo'}]

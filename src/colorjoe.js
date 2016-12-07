@@ -145,7 +145,7 @@ function setup(o) {
         if (previous.equals(col)) {
             return;
         }
-        
+
         for(var i = 0, len = listeners.done.length; i < len; i++) {
             listeners.done[i].fn(col);
         }
@@ -304,11 +304,11 @@ function all(cb, a) {
     return a.map(cb).filter(id).length == a.length;
 }
 
-function isArray(o) {
-    return Object.prototype.toString.call(o) === "[object Array]";
+function isArray(input) {
+    return Object.prototype.toString.call(input) === "[object Array]";
 }
-function isString(o) {
-    return typeof(o) === 'string';
+function isString(input) {
+    return typeof input === 'string';
 }
 function isDefined(input) {
     return typeof input !== "undefined";

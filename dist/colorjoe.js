@@ -10,7 +10,7 @@
     }
 }(this, function(onecolor) {
 /*! colorjoe - v1.0.3 - Juho Vepsalainen <bebraw@gmail.com> - MIT
-https://bebraw.github.com/colorjoe - 2016-08-12 */
+https://bebraw.github.com/colorjoe - 2016-12-05 */
 /*! dragjs - v0.6.0 - Juho Vepsalainen <bebraw@gmail.com> - MIT
 https://bebraw.github.com/dragjs - 2015-07-22 */
 var drag = (function() {
@@ -415,7 +415,7 @@ function fields(p, joe, o) {
         e.input.onkeyup = update;
 
         return {
-            name: n, 
+            name: n,
             e: e
         };
     });
@@ -502,8 +502,7 @@ function hex(p, joe, o) {
 
     return {
         change: function(col) {
-            e.input.value = e.input.value[0] == '#'? '#': '';
-            e.input.value += col.hex().slice(1);
+            e.input.value = col.hex();
         }
     };
 }
@@ -684,7 +683,7 @@ function setup(o) {
         if (previous.equals(col)) {
             return;
         }
-        
+
         for(var i = 0, len = listeners.done.length; i < len; i++) {
             listeners.done[i].fn(col);
         }
@@ -785,7 +784,7 @@ function getColor(c) {
         console.warn('Passed invalid color to colorjoe, using black instead');
     }
 
-    return onecolor('#000');
+    return null; //onecolor('#000');
 }
 
 function setupExtras(p, joe, extras) {
@@ -843,11 +842,11 @@ function all(cb, a) {
     return a.map(cb).filter(id).length == a.length;
 }
 
-function isArray(o) {
-    return Object.prototype.toString.call(o) === "[object Array]";
+function isArray(input) {
+    return Object.prototype.toString.call(input) === "[object Array]";
 }
-function isString(o) {
-    return typeof(o) === 'string';
+function isString(input) {
+    return typeof input === 'string';
 }
 function isDefined(input) {
     return typeof input !== "undefined";
